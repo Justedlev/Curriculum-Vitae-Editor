@@ -14,7 +14,8 @@ I used in this project knowledge of using the `React` library, as well as `JSX`,
 
 ### `Preview`
 
-What does the **[View_Page](preview/curriculum-vitae-view-page.png)** look like **[View_Page](preview/curriculum-vitae-view-page.png)**
-and also the **[Editor_Page](preview/curriculum-vitae-editor-page.png)** [Editor_Page](preview/curriculum-vitae-editor-page.png)
+What does the **[View_Page](preview/curriculum-vitae-view-page.png)** look like
+
+and also the **[Editor_Page](preview/curriculum-vitae-editor-page.png)**
 
 #### `**Runs through the console`
