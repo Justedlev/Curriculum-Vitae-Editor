@@ -8,20 +8,31 @@ export default class App extends React.Component {
     isViewCV: true,
     cv: {
       isEdit: false,
-      name: '',
-      surname: '',
-      description: '',
+      name: 'Name',
+      surname: 'Surname',
+      description: 'Description',
       skills: [
         {
-          list: '',
-          title: ''
+          list: 'Skill list',
+          title: 'Skill title'
         }
-      ]
+      ],
+      experience: {
+        startYear: 1917,
+        endYear: 1917,
+        companyName: 'Company',
+        position: 'Position',
+        description: 'Description',
+        projects: [{
+          projectName: 'Project name',
+          projectDescription: 'Project description'
+        }]
+      }
     }
   }
 
   setCV = cv => {
-    this.setState({ ...this.state, cv: {...cv, isEdit: true}, isViewCV: true });
+    this.setState({ ...this.state, cv: { ...cv, isEdit: true }, isViewCV: true });
   }
 
   render() {
@@ -31,8 +42,8 @@ export default class App extends React.Component {
           this.state.isViewCV ?
             <>
               <div className='row mt-5'>
-                <h1 className='col-9'>Your CV</h1>
-                <button className='col-3 btn btn-primary btn-lg' onClick={() => this.setState({ ...this.state, isViewCV: false })}>Edit</button>
+                <h1 className='col-9 text-primary display-3'><strong>My Curriculum Vitae</strong></h1>
+                <button className='col-3 btn btn-primary btn-lg' onClick={() => this.setState({ ...this.state, isViewCV: false })}><h1>Edit</h1></button>
               </div>
               <hr />
               {
