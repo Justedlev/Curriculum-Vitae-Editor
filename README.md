@@ -14,8 +14,8 @@ I used in this project knowledge of using the `React` library, as well as `JSX`,
 
 ### `Preview`
 
-What does the **[View_Page](preview/curriculum-vitae-view-page.png)** look like
+The application is deployed to the Heroku cloud
 
-and also the **[Editor_Page](preview/curriculum-vitae-editor-page.png)**
+**[To view the application](https://justedlevcvapp.herokuapp.com/)**
 
 #### `**Runs through the console`
