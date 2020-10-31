@@ -1,6 +1,11 @@
 import React from 'react';
-import { getIn, Field, FieldArray, Form, Formik, ErrorMessage } from 'formik';
+import { Form, Formik } from 'formik';
 import * as yup from 'yup';
+
+import About from './About/About';
+import Skills from './Skills/Skills';
+import Experience from './Experience/Experience';
+import Projects from './Projects/Projects';
 
 const yearNow = new Date().getFullYear();
 
@@ -41,204 +46,25 @@ const GeneratorCV = props => {
                     props => (
                         <Form className='form-group mt-3 pt-4 jumbotron shadow'>
                             <div>
-                                <h2># About:</h2>
-                                <div className='form-row'>
-                                    <div className='form-group col-md-6'>
-                                        <Field
-                                            className={`form-control ${props.touched.name && props.errors.name ? 'is-invalid' : ''}`}
-                                            name='name'
-                                            placeholder='Name'
-                                        />
-                                        <ErrorMessage name='name'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                    </div>
-
-                                    <div className='form-group col-md-6'>
-                                        <Field
-                                            className={`form-control ${props.touched.surname && props.errors.surname ? 'is-invalid' : ''}`}
-                                            name='surname'
-                                            placeholder='Surname' />
-                                        <ErrorMessage name='surname'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                    </div>
-
-                                    <div className='form-group col'>
-                                        <Field
-                                            className={`form-control ${props.touched.description && props.errors.description ? 'is-invalid' : ''}`}
-                                            name='description'
-                                            placeholder='Describe yourself' />
-                                        <ErrorMessage name='description'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                    </div>
-                                </div>
+                                <h2><span className='text-danger'>#</span> About:</h2>
+                                <About errors={props.errors} />
                             </div>
                             <hr />
 
                             <div>
-                                <h2 className='mb-4 mt-4'># Skills:</h2>
-                                <FieldArray name='skills'>
-                                    {
-                                        arrayHelpers => (
-                                            <ul>
-                                                {
-                                                    props.values.skills.map((s, index) => {
-                                                        const nameTitle = `skills.${index}.title`;
-                                                        const nameList = `skills.${index}.list`;
-                                                        const errorTitle = getIn(props.errors, nameTitle);
-                                                        const errorList = getIn(props.errors, nameList);
-                                                        const touchedTitle = getIn(props.touched, nameTitle);
-                                                        const touchedList = getIn(props.touched, nameList);
-
-                                                        return (
-                                                            <li className='form-row' key={index}>
-                                                                <div className='form-group col'>
-                                                                    <Field
-                                                                        className={`form-control ${touchedTitle && errorTitle ? 'is-invalid' : ''}`}
-                                                                        name={nameTitle}
-                                                                        placeholder='Type skill title' />
-                                                                    <ErrorMessage name={nameTitle}>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                                                </div>
-                                                                <div className='form-group col'>
-                                                                    <Field
-                                                                        className={`form-control ${touchedList && errorList ? 'is-invalid' : ''}`}
-                                                                        name={nameList}
-                                                                        placeholder='Type list of skills' />
-                                                                    <ErrorMessage name={nameList}>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                                                </div>
-                                                                {
-                                                                    index > 0 ? <button
-                                                                        className='form-group btn btn-danger col-md-2'
-                                                                        type="button"
-                                                                        onClick={() => arrayHelpers.remove(index)}
-                                                                    >remove</button> : null
-                                                                }
-                                                            </li>
-                                                        )
-                                                    }
-                                                    )}
-                                                <button
-                                                    className='btn btn-primary mt-4'
-                                                    type="button"
-                                                    onClick={() => arrayHelpers.push('')}>Add row</button>
-                                            </ul>
-                                        )
-                                    }
-                                </FieldArray>
+                                <h2 className='mb-4 mt-4'><span className='text-danger'>#</span> Skills:</h2>
+                                <Skills errors={props.errors} array={props.values.skills}/>
                             </div>
                             <hr />
 
                             <div>
-                                <h2 className='mb-4 mt-4'># Experience:</h2>
-                                <div className='form-row col'>
-                                    <div className='form-row col'>
-                                        <div className='form-group col'>
-                                            <Field
-                                                className={`form-control ${props.touched.experience &&
-                                                    props.errors.experience &&
-                                                    props.touched.experience.companyName &&
-                                                    props.errors.experience.companyName ? 'is-invalid' : ''}`}
-                                                name='experience.companyName'
-                                                placeholder='Company' />
-                                            <ErrorMessage name='experience.companyName'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                        </div>
-                                        <div className='form-group col'>
-                                            <Field
-                                                className={`form-control ${props.touched.experience &&
-                                                    props.errors.experience &&
-                                                    props.touched.experience.position &&
-                                                    props.errors.experience.position ? 'is-invalid' : ''}`}
-                                                name='experience.position'
-                                                placeholder='Position' />
-                                            <ErrorMessage name='experience.position'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                        </div>
-                                        <div className='form-group col-md-2'>
-                                            <Field
-                                                className={`form-control ${props.touched.experience &&
-                                                    props.errors.experience &&
-                                                    props.touched.experience.startYear &&
-                                                    props.errors.experience.startYear ? 'is-invalid' : ''}`}
-                                                type='number'
-                                                min='1917'
-                                                name='experience.startYear'
-                                                placeholder='Start year'
-                                            />
-                                            <ErrorMessage name='experience.startYear'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                        </div>
-
-                                        <div className='form-group col-md-2'>
-                                            <Field
-                                                className={`form-control ${props.touched.experience &&
-                                                    props.errors.experience &&
-                                                    props.touched.experience.endYear &&
-                                                    props.errors.experience.endYear ? 'is-invalid' : ''}`}
-                                                type='number'
-                                                min='1917'
-                                                name='experience.endYear'
-                                                placeholder='End Year' />
-                                            <ErrorMessage name='experience.endYear'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                        </div>
-                                    </div>
-                                    <div className='form-group col-md-12'>
-                                        <Field
-                                            className={`form-control ${props.touched.experience &&
-                                                props.errors.experience &&
-                                                props.touched.experience.description &&
-                                                props.errors.experience.description ? 'is-invalid' : ''}`}
-                                            name='experience.description'
-                                            placeholder='Description' />
-                                        <ErrorMessage name='experience.description'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                    </div>
-                                </div>
+                                <h2 className='mb-4 mt-4'><span className='text-danger'>#</span> Experience:</h2>
+                                <Experience errors={props.errors} />
                             </div>
-                            <hr />
 
                             <div>
-                                <h2 className='mb-4 mt-4'># Projects:</h2>
-                                <FieldArray name='experience.projects'>
-                                    {
-                                        arrayHelpers => (
-                                            <ul>
-                                                {
-                                                    props.values.experience.projects.map((s, index) => {
-                                                        const nameProjectName = `experience.projects.${index}.projectName`;
-                                                        const nameProjectDescription = `experience.projects.${index}.projectDescription`;
-                                                        const errorProjectName = getIn(props.errors, nameProjectName);
-                                                        const errorProjectDescription = getIn(props.errors, nameProjectDescription);
-                                                        const touchedProjectName = getIn(props.touched, nameProjectName);
-                                                        const touchedProjectDescription = getIn(props.touched, nameProjectDescription);
-
-                                                        return (
-                                                            <li className='form-row' key={index}>
-                                                                <div className='form-group col'>
-                                                                    <Field
-                                                                        className={`form-control ${touchedProjectName && errorProjectName ? 'is-invalid' : ''}`}
-                                                                        name={nameProjectName}
-                                                                        placeholder='Type project name' />
-                                                                    <ErrorMessage name={nameProjectName}>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                                                </div>
-                                                                <div className='form-group col'>
-                                                                    <Field
-                                                                        className={`form-control ${touchedProjectDescription && errorProjectDescription ? 'is-invalid' : ''}`}
-                                                                        name={nameProjectDescription}
-                                                                        placeholder='Type project description' />
-                                                                    <ErrorMessage name={nameProjectDescription}>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
-                                                                </div>
-                                                                {
-                                                                    index > 0 ? <button
-                                                                        className='form-group btn btn-danger col-md-2'
-                                                                        type="button"
-                                                                        onClick={() => arrayHelpers.remove(index)}
-                                                                    >remove</button> : null
-                                                                }
-                                                            </li>
-                                                        )
-                                                    }
-                                                    )}
-                                                <button
-                                                    className='btn btn-primary mt-4'
-                                                    type="button"
-                                                    onClick={() => arrayHelpers.push('')}>Add row</button>
-                                            </ul>
-                                        )
-                                    }
-                                </FieldArray>
+                                <h4 className='mb-4 mt-4'>Projects:</h4>
+                                <Projects errors={props.errors} array={props.values.experience.projects}/>
                             </div>
                             <hr />
 
