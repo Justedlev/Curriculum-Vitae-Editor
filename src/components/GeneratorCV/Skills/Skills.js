@@ -42,9 +42,9 @@ const Skills = props => {
                             }
                             )}
                         <button
-                            className='btn btn-primary mt-4'
+                            className='btn btn-primary mt-4 pl-5 pr-5'
                             type="button"
-                            onClick={() => arrayHelpers.push('')}>Add row</button>
+                            onClick={() => arrayHelpers.push('')}>Add skill</button>
                     </ul>
                 )
             }

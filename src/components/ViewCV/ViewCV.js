@@ -3,7 +3,7 @@ import React from 'react';
 const ViewCV = props => {
     console.log(props);
     return (
-        <div className="jumbotron shadow">
+        <div className="alert alert-primary shadow">
             <h1 className='text-secondary display-3'><span className='text-danger'>#</span> About:</h1>
             <h1>{props.cv.name} {props.cv.surname}</h1>
             <h2>{props.cv.description}</h2>

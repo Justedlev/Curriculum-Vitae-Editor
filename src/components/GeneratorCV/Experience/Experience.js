@@ -4,9 +4,8 @@ import React from 'react';
 const Experience = props => {
 
     return (
-        <div className='form-row col'>
-            <div className='form-row col'>
-                <div className='form-group col'>
+        <div className='form-row'>
+                <div className='form-group col-md-12'>
                     <Field
                         className={`form-control ${props.errors.experience &&
                             props.errors.experience.companyName ? 'is-invalid' : ''}`}
@@ -14,7 +13,7 @@ const Experience = props => {
                         placeholder='Company' />
                     <ErrorMessage name='experience.companyName'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
                 </div>
-                <div className='form-group col'>
+                <div className='form-group col-md-12'>
                     <Field
                         className={`form-control ${props.errors.experience &&
                                 props.errors.experience.position ? 'is-invalid' : ''}`}
@@ -22,7 +21,7 @@ const Experience = props => {
                         placeholder='Position' />
                     <ErrorMessage name='experience.position'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
                 </div>
-                <div className='form-group col-md-2'>
+                <div className='form-group col'>
                     <Field
                         className={`form-control ${props.errors.experience &&
                                 props.errors.experience.startYear ? 'is-invalid' : ''}`}
@@ -33,7 +32,7 @@ const Experience = props => {
                     />
                     <ErrorMessage name='experience.startYear'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
                 </div>
-                <div className='form-group col-md-2'>
+                <div className='form-group col'>
                     <Field
                         className={`form-control ${props.errors.experience &&
                                 props.errors.experience.endYear ? 'is-invalid' : ''}`}
@@ -43,7 +42,6 @@ const Experience = props => {
                         placeholder='End Year' />
                     <ErrorMessage name='experience.endYear'>{msg => <span className='invalid-feedback'>{msg}</span>}</ErrorMessage>
                 </div>
-            </div>
             <div className='form-group col-md-12'>
                 <Field
                     className={`form-control ${props.errors.experience &&
