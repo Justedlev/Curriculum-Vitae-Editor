@@ -1,6 +1,6 @@
 # Curriculum vitae editor
 
-Small Curriculum vitae editor.
+Small Curriculum vitae editor **[To view the application](https://justedlevcvapp.herokuapp.com/)**
 
 ## Description
 
@@ -14,8 +14,4 @@ I used in this project knowledge of using the `React` library, as well as `JSX`,
 
 ### `Preview`
 
-The application is deployed to the Heroku cloud
-
-**[To view the application](https://justedlevcvapp.herokuapp.com/)**
-
-#### `**Runs through the console`
+The application is deployed to the Heroku clou
