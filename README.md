@@ -16,4 +16,4 @@ I used in this project knowledge of using the `React` library, as well as `JSX`,
 
 The application is deployed to the Heroku cloud
 
-**[To view the application](https://justedlevcvapp.herokuapp.com/)**
+<|**[To view the application](https://justedlevcvapp.herokuapp.com/)**|>
