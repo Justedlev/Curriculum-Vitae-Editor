@@ -11,7 +11,7 @@ import { schema } from './validationSchema';
 const GeneratorCV = props => {
     return (
         <>
-            <h1 className='col-9 text-primary display-3 mt-4'><strong>Generate your CV</strong></h1>
+            <h1 className='col-9 text-primary mt-4 display-4'>Generate your CV</h1>
             <Formik
                 initialValues={props.cv}
                 onSubmit={values => props.setCV(values)}
@@ -40,9 +40,9 @@ const GeneratorCV = props => {
                                     <div className='alert alert-danger'>The form cannot be submitted</div>
                                     :
                                     <button
-                                        className='btn btn-success btn-lg btn-block'
+                                        className='btn btn-success btn-block'
                                         type='submit'
-                                    ><h3>Send</h3></button>
+                                    ><h4>Send</h4></button>
                             }
                         </Form>
                     )}

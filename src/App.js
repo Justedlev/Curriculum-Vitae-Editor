@@ -42,8 +42,8 @@ export default class App extends React.Component {
           this.state.isViewCV ?
             <>
               <div className='row mt-5'>
-                <h1 className='col-9 text-primary display-3'><strong>My Curriculum Vitae</strong></h1>
-                <button className='col-3 btn btn-primary btn-lg' onClick={() => this.setState({ ...this.state, isViewCV: false })}><h1>Edit</h1></button>
+                <h1 className='col-9 text-primary display-4'>My Curriculum Vitae</h1>
+                <button className='col-3 btn btn-primary btn-lg' onClick={() => this.setState({ ...this.state, isViewCV: false })}><h3>Edit</h3></button>
               </div>
               <hr />
               {
